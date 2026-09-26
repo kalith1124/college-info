@@ -384,7 +384,7 @@ export function getFullAdmissionForCollege(college: College): Admission {
 
   let process = 'Applications open online and in-person for the 2026-2027 academic session. Admission is strictly merit-based following Government of Tamil Nadu reservation policies.';
   let eligibility = 'For UG Programs: Pass in Higher Secondary (+2 / HSC) examination conducted by Tamil Nadu State Board or equivalent with relevant subject combination.';
-  
+
   if (isEngg) {
     process = 'Admissions conducted via Tamil Nadu Engineering Admissions (TNEA) Single Window Counseling under Anna University, plus Institutional Management Quota for 2026.';
     eligibility = 'HSC (+2) pass with minimum 45% aggregate in Physics, Chemistry & Mathematics (40% for BC/BCM/MBC/SC/SCA/ST). Direct 2nd year entry for Diploma holders.';
