@@ -169,7 +169,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         localStorage.setItem('cip-admin-auth', JSON.stringify(mockAdmin));
         return { error: null };
       }
-      return { error: 'Invalid login credentials. Use email: admin@example.com, password: admin123' };
+      return { error: 'Invalid admin ID or password. Please check your credentials.' };
     }
   }, []);
 
