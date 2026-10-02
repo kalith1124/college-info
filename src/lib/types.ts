@@ -46,6 +46,111 @@ export interface College {
   milestones?: Milestone[];
   highlights?: string[];
   principal_name?: string | null;
+  verified_details?: CollegeVerifiedDetails;
+}
+
+export interface LocationReachability {
+  address: string;
+  village: string;
+  town: string;
+  taluk: string;
+  district: string;
+  pincode: string;
+  nearest_bus_stand: string;
+  nearest_railway_station: string;
+  distance_from_tenkasi: string;
+}
+
+export interface VerifiedContacts {
+  principal: string;
+  principal_office: string;
+  college_office: string;
+  admission_number: string;
+  placement_number: string;
+  official_email: string;
+  admission_email: string;
+  placement_email: string;
+  note?: string;
+}
+
+export interface VerifiedDepartment {
+  name: string;
+  code: string;
+  hod: string;
+  faculty_count: number;
+}
+
+export interface VerifiedCourse {
+  name: string;
+  degree: string;
+  level: string;
+  duration: string;
+  intake: number;
+  medium: string;
+  eligibility: string;
+}
+
+export interface VerifiedAdmissionInfo {
+  status: string;
+  application_start: string;
+  application_end: string;
+  eligibility: string;
+  documents: string;
+  application_fee: string;
+  process: string;
+  counselling: string;
+  contact: string;
+  portal_url?: string;
+}
+
+export interface VerifiedFeeItem {
+  course_name: string;
+  academic_year: string;
+  tuition: string;
+  exam: string;
+  hostel: string;
+  total_approx: string;
+  source_url?: string;
+}
+
+export interface VerifiedHostelItem {
+  type: string;
+  capacity: number;
+  fee: string;
+  mess: string;
+  warden: string;
+  security: string;
+  rules: string;
+}
+
+export interface VerifiedTransportItem {
+  route: string;
+  mode: string;
+  stops: string;
+  frequency: string;
+  fee: string;
+}
+
+export interface VerifiedPlacementInfo {
+  cell_name?: string;
+  placement_rate?: string;
+  average_package?: string;
+  highest_package?: string;
+  companies?: string[];
+  contact?: string;
+  description?: string;
+}
+
+export interface CollegeVerifiedDetails {
+  location: LocationReachability;
+  contacts: VerifiedContacts;
+  departments: VerifiedDepartment[];
+  courses: VerifiedCourse[];
+  admission: VerifiedAdmissionInfo;
+  fees: VerifiedFeeItem[];
+  hostel: VerifiedHostelItem[];
+  transportation: VerifiedTransportItem[];
+  placement?: VerifiedPlacementInfo;
 }
 
 export interface Course {

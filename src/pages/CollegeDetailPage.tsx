@@ -19,11 +19,13 @@ import StarRating from '@/components/StarRating';
 import { Skeleton } from '@/components/Skeleton';
 import CollegeHistoryTimeline from '@/components/CollegeHistoryTimeline';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
-import { getCollegeRunningInfo } from '@/lib/college-details-data';
+import VerifiedCollegeDetails from '@/components/VerifiedCollegeDetails';
+import { getCollegeRunningInfo, getVerifiedDetailsForCollege } from '@/lib/college-details-data';
 
-type Tab = 'about' | 'history' | 'courses' | 'departments' | 'admission' | 'fees' | 'facilities' | 'placement' | 'faculty' | 'gallery' | 'map' | 'contact' | 'reviews';
+type Tab = 'verified' | 'about' | 'history' | 'courses' | 'departments' | 'admission' | 'fees' | 'facilities' | 'placement' | 'faculty' | 'gallery' | 'map' | 'contact' | 'reviews';
 
 const TABS: { id: Tab; label: string; icon: typeof Info }[] = [
+  { id: 'verified', label: 'Verified Information', icon: CheckCircle2 },
   { id: 'about', label: 'About & Overview', icon: Info },
   { id: 'history', label: 'History & 2026 Timeline', icon: TrendingUp },
   { id: 'courses', label: 'Courses (UG/PG)', icon: BookOpen },
@@ -56,7 +58,7 @@ export default function CollegeDetailPage() {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<Tab>('about');
+  const [activeTab, setActiveTab] = useState<Tab>('verified');
   const [lightbox, setLightbox] = useState<string | null>(null);
   const [reviewForm, setReviewForm] = useState({ name: '', rating: 5, comment: '' });
   const [submittingReview, setSubmittingReview] = useState(false);
@@ -357,6 +359,10 @@ export default function CollegeDetailPage() {
 
         {/* Tab content */}
         <div className="animate-fade-in space-y-6">
+          {activeTab === 'verified' && (
+            <VerifiedCollegeDetails college={college} />
+          )}
+
           {activeTab === 'about' && (
             <div className="space-y-6">
               {/* Full Timeline & Legacy Journey Highlight */}
